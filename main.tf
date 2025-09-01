@@ -18,6 +18,7 @@ resource "aws_kms_key" "this" {
   policy              = var.key_policy_json != null ? var.key_policy_json : data.aws_iam_policy_document.default.json
   deletion_window_in_days = 10
   enable_key_rotation = true
+  tags = var.tags
 }
 
 resource "aws_kms_alias" "this" {
